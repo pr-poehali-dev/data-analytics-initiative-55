@@ -198,6 +198,13 @@ const Index = () => {
                 title: "Любой жанр",
                 desc: "Работает с классикой, джазом, фолком, поп-музыкой и авангардом — обученность на тысячах произведений",
               },
+              {
+                icon: "Phone",
+                title: "Свяжитесь с нами",
+                desc: "Остались вопросы? Звоните — поможем с любым запросом по распределению партий",
+                contact: "+7 (929) 313-64-36",
+                href: "tel:+79293136436",
+              },
             ].map((item, i) => {
               const isVisible = visibleSections["features"];
               return (
@@ -213,6 +220,15 @@ const Index = () => {
                   </div>
                   <h3 className="font-display font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                  {item.contact && (
+                    <a
+                      href={item.href}
+                      className="mt-4 inline-flex items-center gap-2 text-accent font-semibold text-base hover:text-accent/80 transition-colors"
+                    >
+                      <Icon name="Phone" size={16} className="text-accent" />
+                      {item.contact}
+                    </a>
+                  )}
                 </div>
               );
             })}
@@ -234,12 +250,13 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-5 gap-6">
             {[
               { num: "01", title: "Загрузите", desc: "Загрузите MIDI, XML или вручную введите ноты произведения" },
               { num: "02", title: "Укажите состав", desc: "Добавьте певцов, их голоса и диапазоны в удобном редакторе" },
               { num: "03", title: "AI распределяет", desc: "Алгоритм подбирает оптимальное распределение партий за секунды" },
               { num: "04", title: "Экспортируйте", desc: "Скачивайте готовые ноты для каждой голосовой партии" },
+              { num: "☎", title: "Нужна помощь?", desc: "Позвоните нам — поможем на любом шаге", contact: "+7 (929) 313-64-36", href: "tel:+79293136436" },
             ].map((step, i) => {
               const isVisible = visibleSections["how"];
               return (
@@ -257,6 +274,15 @@ const Index = () => {
                       </div>
                       <h3 className="font-display font-bold text-xl mb-2">{step.title}</h3>
                       <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
+                      {step.contact && (
+                        <a
+                          href={step.href}
+                          className="mt-4 inline-flex items-center gap-2 text-accent font-semibold hover:text-accent/80 transition-colors"
+                        >
+                          <Icon name="Phone" size={15} className="text-accent" />
+                          {step.contact}
+                        </a>
+                      )}
                     </div>
                   </div>
                   {i < 3 && (
